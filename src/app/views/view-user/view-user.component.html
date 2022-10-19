@@ -1,0 +1,10 @@
+<div style="    display: grid;place-items: center;padding: 1rem;">
+    <button (click)="addUsers()">Add users</button>
+</div>
+<div style="display: grid;grid-template-columns: 1fr 1fr 1fr 1fr; place-items: center;">
+    <div style="background: rgba(42, 3, 123, 0.07);border: 1px solid #BBBBBB;border-radius: 16px;padding:1rem;" *ngFor="let user of userLmtList,">
+        <p *ngFor="let item of user | keyvalue">{{item.key}} : {{item.value}}</p>
+        <button (click)="showMore(user.id || 0)">show more</button>
+        <button (click)="deleteUser(user.id || 0)">delete</button>
+    </div>
+</div>

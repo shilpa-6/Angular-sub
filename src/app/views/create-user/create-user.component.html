@@ -1,0 +1,51 @@
+<form (ngSubmit)="saveProfile()" class="form" [formGroup]="userForm">
+    <mat-stepper #stepper (selectionChange)="stepChanged($event)">
+        <mat-step [stepControl]="userForm">
+            <form [formGroup]="userForm">
+                    <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Last name, First name" formControlName="Name" required>
+                </mat-form-field>
+                <div class="button-class">
+                    <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="userForm" >
+            <form [formGroup]="userForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="Email" required>
+                </mat-form-field>
+                <div class="button-class">
+                    <button mat-raised-button color="primary" mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="userForm" >
+            <form [formGroup]="userForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput type="number" formControlName="Phone" required>
+                </mat-form-field>
+                <div class="button-class">
+                    <button mat-raised-button color="primary" mat-button matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary" mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="userForm" >
+            <form [formGroup]="userForm">
+                <mat-form-field appearance="fill">
+                    <mat-label>Address</mat-label>
+                    <input matInput formControlName="Address" placeholder="Ex. 1 Main St, New York, NY" required>
+                </mat-form-field>
+                <div class="button-class">
+                    <button mat-raised-button color="primary" mat-button matStepperPrevious>Back</button>
+                    <button [disabled]="!userForm.valid" mat-raised-button color="primary" mat-button matStepperNext (click)="saveProfile()">Create User</button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-stepper>
+</form>

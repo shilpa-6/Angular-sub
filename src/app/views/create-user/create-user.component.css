@@ -1,0 +1,11 @@
+.button-class {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10rem;
+}
+
+button {
+    background: #B4DFDD;
+    border: 1px solid #8DB1B0;
+    border-radius: 8px;
+}
